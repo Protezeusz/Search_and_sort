@@ -4,7 +4,9 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    binary_serch_iterative.cpp
+    binary_search_iterative.cpp \
+    linear_search.cpp
 
 HEADERS += \
-    binary_serch_iterative.h
+    binary_search_iterative.h \
+    linear_search.h

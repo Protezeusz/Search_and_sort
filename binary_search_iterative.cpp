@@ -1,21 +1,23 @@
-#include "binary_serch_iterative.h"
+#include "binary_search_iterative.h"
 
 
-Binary_serch_iterative::Binary_serch_iterative(int * x)
+Binary_search_iterative::Binary_search_iterative(int * x, int a)
 {
     tab = x;
+    L = 0;
+    H = a;
 }
 
-void Binary_serch_iterative::del()
+void Binary_search_iterative::del()
 {
     delete [] tab;
 }
 
-int Binary_serch_iterative::serch(int x)
+int Binary_search_iterative::search(int x)
 {
-    l = 0;
-    h = 999;
-    mid = (l + h) / 2;
+    int l = L;
+    int h = H;
+    int mid = (l + h) / 2;
 
     auto start_time =std::chrono::steady_clock::now();
 
@@ -24,7 +26,7 @@ int Binary_serch_iterative::serch(int x)
             h = mid - 1;
         if(x > tab[mid])
             l = mid + 1;
-            mid = (l + h) / 2;
+        mid = (l + h) / 2;
     }
 
     auto end_time = std::chrono::steady_clock::now();
@@ -37,7 +39,7 @@ int Binary_serch_iterative::serch(int x)
     return i;
 }
 
-long double Binary_serch_iterative::get_time()
+long double Binary_search_iterative::get_time()
 {
     return op_time;
 }

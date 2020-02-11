@@ -1,29 +1,41 @@
+#include "linear_search.h"
+#include "binary_search_iterative.h"
 #include <iostream>
-#include <binary_serch_iterative.h>
 
 int main()
 {
     int * x;
-    x = new int [999];
+    int a=100000;
+    x = new int [a];
 
-    for (int i = 0; i < 999; i++)
+    for (int i = 0; i < a; i++)
     {
         x[i]=2*i;
     }
 
-    Binary_serch_iterative bs = Binary_serch_iterative(x);
+    Linear_search ls = Linear_search(x, a);
+    Binary_search_iterative bsi = Binary_search_iterative(x, a);
 
     int i;
     while (true)
     {
-        std::cout << "\n\n";
+        std::cout << "Find: ";
         std::cin >> i;
-        std::cout << "Index: " << bs.serch(i);
-        std::cout << "\nTime: "<< bs.get_time() << " ns";
+
+        std::cout << "Linear search method: ";
+        std::cout << "\nIndex: " << ls.search(i);
+        std::cout << "\nTime: "<< ls.get_time() << " ns";
+
+        std::cout << "\nBinary search iterative method: ";
+        std::cout << "\nIndex: " << bsi.search(i);
+        std::cout << "\nTime: "<< bsi.get_time() << " ns";
+
+        std::cout << "\n\n";
 
     }
 
-    bs.del();
+    ls.del();
+    bsi.del();
     delete [] x;
     return 0;
 }
