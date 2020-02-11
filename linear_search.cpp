@@ -14,6 +14,7 @@ void Linear_search::del()
 
 int Linear_search::search(int x)
 {
+    i = -1;
     auto start_time =std::chrono::steady_clock::now();
 
     for(int j = 0; j < H; j++)

@@ -19,9 +19,9 @@ int Binary_search_iterative::search(int x)
     int h = H;
     int mid = (l + h) / 2;
 
-    auto start_time =std::chrono::steady_clock::now();
+    auto start_time = std::chrono::steady_clock::now();
 
-    while ((x != tab[mid]) && (l < h)) {
+    while ((x != tab[mid]) && (l <= h)) {
         if(x < tab[mid])
             h = mid - 1;
         if(x > tab[mid])

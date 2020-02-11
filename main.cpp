@@ -1,5 +1,6 @@
 #include "linear_search.h"
 #include "binary_search_iterative.h"
+#include "binary_search_recursive.h"
 #include <iostream>
 
 int main()
@@ -15,6 +16,7 @@ int main()
 
     Linear_search ls = Linear_search(x, a);
     Binary_search_iterative bsi = Binary_search_iterative(x, a);
+    Binary_search_recursive bsr = Binary_search_recursive(x, a);
 
     int i;
     while (true)
@@ -26,9 +28,13 @@ int main()
         std::cout << "\nIndex: " << ls.search(i);
         std::cout << "\nTime: "<< ls.get_time() << " ns";
 
-        std::cout << "\nBinary search iterative method: ";
+        std::cout << "\n\nBinary search iterative method: ";
         std::cout << "\nIndex: " << bsi.search(i);
         std::cout << "\nTime: "<< bsi.get_time() << " ns";
+
+        std::cout << "\n\nBinary search recursive method: ";
+        std::cout << "\nIndex: " << bsr.search(i);
+        std::cout << "\nTime: "<< bsr.get_time() << " ns";
 
         std::cout << "\n\n";
 
@@ -36,6 +42,7 @@ int main()
 
     ls.del();
     bsi.del();
+    bsr.del();
     delete [] x;
     return 0;
 }
